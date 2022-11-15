@@ -8,7 +8,9 @@ For the project we will work with 3 datasets:
 - The WeRateDogs Twitter archive 
 - The tweet image predictions dataset 
 - Additional data from the Twitter API
+We will first clean all 3 datasets(data wrangling part), combine and store them in a csv file, then perform some visualizations.
 
+## 1. Data Wrangling
 The steps we will follow in the data wrangling process include:
 - Gathering 
 - Assessing 
@@ -105,3 +107,19 @@ states whether or not the predicted image is a dog, we shall drop all rows where
 Data tidiness issues were solved as follows: 
 1. Using pandas’ merge function to merge the two datasets. This merged dataset was later combined with the image predictions dataset. 
 2. We first replaced 'None' entries in the floofer, doggo, pupper, and puppo columns with blanks. We then combined the values in the 3 datasets into a mew column called 'stage'. Afterwards, we applied formatting to some entries in the stage columnn that had glued string names together.
+
+
+## 2. Storing the data
+Store the three combined dataset in a master csv file called twitter_archive_master.
+## 3. Analysis and Visualizations
+### Analytical Insights
+In this part we set out by asking 3 questions:
+1. What was the highest rating given?
+2. Who received the most retweets?
+3. What dog breed was submitted the most to We Rate Dogs twitter account for rating?
+
+We answered the first question by getting the maximum rating numerator in the dataset. The highest rating ever given to a single dog was 1776. A quick twitter search reveals that it was given to Atticus, a dog sitting in front of the American flag. The reason for such a high rating then becomes clear(1776 was America's year of independence).
+We got the most retweeted rating by getting the maximum retweet count. At a staggering retweet count of 79515, the 13/10 rated doggo who received this was quite adorably standing in a pool.
+We got the most submitted dog breed by counting the number of dogs by breed through value_counts(). Golden retrievers were the most submitted dog breeds to the We Rate Dogs twitter account for rating.
+### Visualization
+To view the relationship between the favourite count and the retweet count, we created a scatter plot of the two. They are quite clearly positively related.
